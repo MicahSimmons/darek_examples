@@ -33,18 +33,31 @@ print(head)
 print(run)
 print('brute force suckers!!!')
 
+print('')
+print('################')
+print('################')
+print('')
 
 #set variables with a list and a loop
-variables = ['mouth', 'head', 'run']
-#~ print(variables[0])
-#~ print(variables[1])
-#~ print(variables[2])
-print('################')
-for x in variables:
-	(variables[x]) = (df.loc[df.code==x, 'measure'].values[0]) #how to get a function to set a variable name?
+code_list = ['mouth', 'head', 'run']
+
+# define a new Dictionary object
+# This will map a string as index to a dataframe
+df_storage = {}
+
+
+# For each code within the code list, create a dataframe
+# with only the subset with matching codes.  Each subset
+# is copied into the dictionary referenced by the code
+# for lookup later.
+for x in code_list:
+	(df_storage[x]) = (df.loc[df.code==x, 'measure'].values[0]) #how to get a function to set a variable name?
 
 #output to verify success
-print(mouth)
-print(head)
-print(run)
+# Instead of having individual variables, the code string can
+# be passed into df_storage as the hash index.
+print(df_storage['mouth'])
+print(df_storage['head'])
+print(df_storage['run'])
+
 print('yeah, the loop worked?')
