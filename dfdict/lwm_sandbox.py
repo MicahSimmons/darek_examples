@@ -45,13 +45,13 @@ code_list = ['mouth', 'head', 'run']
 # This will map a string as index to a dataframe
 df_storage = {}
 
-
 # For each code within the code list, create a dataframe
 # with only the subset with matching codes.  Each subset
 # is copied into the dictionary referenced by the code
 # for lookup later.
 for x in code_list:
-	(df_storage[x]) = (df.loc[df.code==x, 'measure'].values[0]) #how to get a function to set a variable name?
+	(df_storage[x]) = (df.loc[df.code==x, 'measure'].values[0])
+
 
 #output to verify success
 # Instead of having individual variables, the code string can
@@ -59,5 +59,6 @@ for x in code_list:
 print(df_storage['mouth'])
 print(df_storage['head'])
 print(df_storage['run'])
+
 
 print('yeah, the loop worked?')
